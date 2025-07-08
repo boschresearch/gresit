@@ -1,0 +1,49 @@
+site_name: gresit Doku
+repo_name: gresit
+
+theme:
+    name: material
+    highlightjs: true
+    custom_dir: overrides
+    color_mode: auto
+    hljs_languages:
+      - python
+    include_sidebar: true
+    features:
+      - navigation.expand
+      - navigation.instant
+      - navigation.instant.prefetch
+      - navigation.instant.preview
+
+extra:
+    version:
+        default: latest
+        provider: mike
+
+plugins:
+    - mkdocstrings:
+        enable_inventory: true
+    - search
+    - mike:
+        canonical_version: latest
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - codehilite:
+      guess_lang: false
+
+nav:
+    - index.md
+    - Getting started: getting_started.md
+    - Data and gRESIT algorithm: data.md
+    - Arguments: gresit.md
+    - More algorithms: algorithms.md
+    - Simulations: simulations.md
+    - API: api.md

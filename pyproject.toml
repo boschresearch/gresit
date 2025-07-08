@@ -1,0 +1,123 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "gresit"
+requires-python = ">3.10.0"
+authors = [
+    { name = "Konstantin Göbler", email = "konstantin.goebler@tum.de" },
+    { name = "Tobias Windisch", email = "tobias.windisch@hs-kempten.de" },
+    { name = "Mathias Drton", email = "mathias.drton@tum.de" },
+]
+maintainers = [{ name = "Martin Roth", email = "martin.roth2@bosch.com" }]
+license = { text = "AGPL v3" }
+description = "Collection of methods and tools to learn causal graphs from grouped data."
+dynamic = ["version"]
+dependencies = [
+    "numpy<2",
+    "pandas",
+    "scikit-learn",
+    "statsmodels",
+    "plotly",
+    "xgboost",
+    "torch",
+    "seaborn",
+    "pyspark",
+    "scikit-misc",
+    "gadjid",
+    "tqdm",
+    "dcor",
+    "llvmlite==0.43.0",
+    "causal-learn",
+    "gcastle",
+    "gpytorch",
+]
+readme = "README.md"
+
+[project.optional-dependencies]
+dev = [
+    "mike",
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocstrings[python]",
+    "pip-licenses",
+    "pip-tools",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "uv",
+]
+
+[tool.setuptools.packages.find]
+include = ["gresit*"]
+
+
+[tool.setuptools.dynamic]
+version = { file = "VERSION" }
+
+[tool.uv.pip]
+emit-index-url = false
+index-strategy = "unsafe-best-match"
+
+[tool.ruff]
+
+exclude = [
+    ".github",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "venv",
+    #"notebooks/",
+]
+
+extend-include = ["*.ipynb"]
+
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "UP",  # pyupgrade
+    "D",   # pydocstyle
+    "PL",  # pylint
+    "TD",  # flake8-todos
+    "C90", # McCabe
+]
+
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pylint]
+max-args = 10
+
+[tool.pytest.ini_options]
+addopts = "--cov=gresit --cov-fail-under=60"
+testpaths = ["tests"]
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
