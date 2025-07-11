@@ -22,9 +22,6 @@ scribbling/*
 # Package files
 *egg-info*
 
-reports/
-badges/
-
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
