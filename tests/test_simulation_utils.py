@@ -19,14 +19,12 @@ import unittest
 import networkx as nx
 import numpy as np
 
-from gresit.params import DataParams, ExperimentParams, PCParams, ResitParams
-from gresit.regression_techniques import SimultaneousLinearModel
+from gresit.params import DataParams, ExperimentParams, PCParams
 from gresit.simulation_utils import (
     BenchMarker,
     _make_super_dag_adjacency,
 )
 from gresit.synthetic_data import GenLayeredData
-from gresit.torch_models import Multioutcome_MLP
 
 
 class TestSimulationUtils(unittest.TestCase):
@@ -63,16 +61,11 @@ class TestSimulationUtils(unittest.TestCase):
 
         params = ExperimentParams(
             algos=[
-                ResitParams(
-                    regressor=Multioutcome_MLP,
-                    kwargs={
-                        "n_epochs": 5,
-                        "learning_rate": 0.1,
-                    },
+                PCParams(
+                    alpha=0.1,
                 ),
-                ResitParams(
-                    regressor=SimultaneousLinearModel,
-                    kwargs={},
+                PCParams(
+                    alpha=0.001,
                 ),
                 PCParams(
                     alpha=0.05,
@@ -96,9 +89,9 @@ class TestSimulationUtils(unittest.TestCase):
             all(
                 [
                     len(alg_runs) == num_runs
-                    for alg_runs in results["GroupResit()_HSIC_murgs"].values()
+                    for alg_runs in results["GroupPC(alpha=0.1, test=FisherZVec)"].values()
                 ]
             )
         )
         self.assertEqual(len(results), len(params.algos))
-        self.assertEqual(len(results["GroupResit()_HSIC_murgs"]), len(metrics))
+        self.assertEqual(len(results["GroupPC(alpha=0.1, test=FisherZVec)"]), len(metrics))

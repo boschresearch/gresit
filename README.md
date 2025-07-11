@@ -1,8 +1,10 @@
 # gRESIT
 
-[![Documentation Status](https://readthedocs.org/projects/gresit/badge/?version=latest)](https://gresit.readthedocs.io/en/latest/?badge=latest)
-[![PyPI version](https://badge.fury.io/py/gresit.svg)](https://badge.fury.io/py/gresit)
-![Testing_package_badge](https://github.com/bosch-cc-mfd/python_template/actions/workflows/test_package.yml/badge.svg)
+[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](https://boschresearch.github.io/gresit/)
+
+[![Made with Python](https://img.shields.io/badge/Python->=3.10-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")
+[![PyPI - maintained](https://img.shields.io/badge/PyPI-maintained-green?logo=pypi)](https://test.pypi.org/project/gresit/1.0.0/)
+[![Tests Status](./badges/tests-badge.svg)](./reports/junit/report.html)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Code style: ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/format.json)](https://github.com/astral-sh/ruff)
 
