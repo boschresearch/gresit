@@ -42,6 +42,6 @@ gresit.show_interactive()
 
 Which produces the following interactive graph:
 
-<iframe src="html_plots/graph.html" width="100%" height="600px" style="border:none;"></iframe>
+<iframe src="../html_plots/graph.html" width="100%" height="600px" style="border:none;"></iframe>
 
 In the section [gRESIT](gresit.md) you will find details on all arguments and hyperparameters for `gRESIT`.
