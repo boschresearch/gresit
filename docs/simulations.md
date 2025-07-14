@@ -12,7 +12,7 @@ All code necessary to reproduce the simulation results from our paper
 }
 ```
 
-is contained in the folder [`simulation`](https://github.com/bosch-research/gresit/tree/main/simulation).
+is contained in the folder [`simulation`](https://github.com/boschresearch/gresit/tree/main/simulation).
 
 Essentially, executing `./run_simulations.sh` executes the benchmarks for different numbers of nodes,
 groups, and samples, sequentially. In our experiments, we use `slurm` to massively parallelize the individual runs.
